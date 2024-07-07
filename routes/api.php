@@ -19,3 +19,4 @@ use App\Http\Controllers\Api\PostsController;
 //     return $request->user();
 // });
 Route::get('/posts',[PostsController::class,'index']);
+Route::get('/post/{id}',[PostsController::class,'show']);
