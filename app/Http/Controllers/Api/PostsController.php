@@ -9,10 +9,11 @@ use App\Models\posts;
 
 class PostsController extends Controller
 {
+    use ApiResponseTrait;
     public function index()
     {
         $posts = posts::get();
-        $msg =['ok'];
-        return response($posts,200,$msg);
+
+        return $this->apiResponse($posts,'ok',200);
     }
 }
