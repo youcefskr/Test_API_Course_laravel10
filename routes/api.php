@@ -21,4 +21,5 @@ use App\Http\Controllers\Api\PostsController;
 Route::get('/posts',[PostsController::class,'index']);
 Route::get('/post/{id}',[PostsController::class,'show']);
 Route::post('/posts',[PostsController::class,'store']);
+Route::post('/post/{id}',[PostsController::class,'update']);
 
