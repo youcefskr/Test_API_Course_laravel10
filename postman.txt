@@ -1,0 +1,1 @@
+1::new collection variable url utiliser {{url}} 
