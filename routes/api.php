@@ -32,9 +32,13 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
-Route::get('/posts',[PostsController::class,'index']);
-Route::get('/post/{id}',[PostsController::class,'show']);
-Route::post('/posts',[PostsController::class,'store']);
-Route::post('/post/{id}',[PostsController::class,'update']);
-Route::post('/posts/{id}',[PostsController::class,'destroy']);
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('/posts',[PostsController::class,'index']);
+    Route::get('/post/{id}',[PostsController::class,'show']);
+    Route::post('/posts',[PostsController::class,'store']);
+    Route::post('/post/{id}',[PostsController::class,'update']);
+    Route::post('/posts/{id}',[PostsController::class,'destroy']);
+});
+
 
